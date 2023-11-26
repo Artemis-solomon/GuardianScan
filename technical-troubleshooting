@@ -1,0 +1,88 @@
+# GuardianScan Technical Troubleshooting and Details Document
+
+This technical document provides information on troubleshooting common issues that may arise during the use of GuardianScan, along with detailed technical aspects of the tool.
+
+## Table of Contents
+
+1. [Troubleshooting Guide](#troubleshooting-guide)
+   - [Issue: GuardianScan Fails to Start](#issue-guardianscan-fails-to-start)
+   - [Issue: Web Interface Not Accessible](#issue-web-interface-not-accessible)
+   - [Issue: Scanning Process Errors](#issue-scanning-process-errors)
+   - [Issue: No Scan Results Displayed](#issue-no-scan-results-displayed)
+2. [Technical Details](#technical-details)
+   - [Logging Details](#logging-details)
+   - [Web Interface Configuration](#web-interface-configuration)
+   - [Dependency Information](#dependency-information)
+   - [Modular Architecture](#modular-architecture)
+
+## 1. Troubleshooting Guide <a name="troubleshooting-guide"></a>
+
+### Issue: GuardianScan Fails to Start <a name="issue-guardianscan-fails-to-start"></a>
+
+#### Possible Causes:
+- Python is not installed.
+- Dependencies are not installed.
+
+#### Troubleshooting Steps:
+1. Ensure Python 3.x is installed on your system.
+2. Run the following commands in the GuardianScan directory:
+   ```bash
+   pip install -r requirements.txt
+   python scanner_main.py
+   ```
+
+### Issue: Web Interface Not Accessible <a name="issue-web-interface-not-accessible"></a>
+
+#### Possible Causes:
+- Another application is using the same port.
+- Flask is not installed.
+
+#### Troubleshooting Steps:
+1. Confirm that no other application is using port 5000.
+2. Ensure Flask is installed by running:
+   ```bash
+   pip install Flask
+   ```
+
+### Issue: Scanning Process Errors <a name="issue-scanning-process-errors"></a>
+
+#### Possible Causes:
+- Invalid input data.
+- SQL Injection module errors.
+
+#### Troubleshooting Steps:
+1. Check the input data for correctness and relevance.
+2. Inspect the `vulnerability_scanner.log` file for detailed error messages.
+
+### Issue: No Scan Results Displayed <a name="issue-no-scan-results-displayed"></a>
+
+#### Possible Causes:
+- The scanning process did not detect vulnerabilities.
+- Web interface issues.
+
+#### Troubleshooting Steps:
+1. Verify the input data for potential vulnerabilities.
+2. Inspect the web interface for error messages.
+3. Check the `vulnerability_scanner.log` file for additional information.
+
+## 2. Technical Details <a name="technical-details"></a>
+
+### Logging Details <a name="logging-details"></a>
+
+GuardianScan logs events using Python's `logging` module. The log file is named `vulnerability_scanner.log` and is located in the project directory. Log levels include `INFO`, `WARNING`, and `ERROR`.
+
+### Web Interface Configuration <a name="web-interface-configuration"></a>
+
+The web interface is powered by Flask. Configuration details can be found in the `app.py` file. Adjust the `debug` mode based on your deployment environment.
+
+### Dependency Information <a name="dependency-information"></a>
+
+GuardianScan relies on external dependencies. Refer to the `requirements.txt` file for the list of required packages and their versions.
+
+### Modular Architecture <a name="modular-architecture"></a>
+
+GuardianScan is designed with a modular structure to facilitate future enhancements and additional vulnerability detection modules. Each detection module can be added to the `scanner` directory.
+
+---
+
+This technical document serves as a guide for troubleshooting and understanding the technical aspects of GuardianScan. For more detailed information, refer to the source code, documentation, and engage with the open-source community for support and contributions.
