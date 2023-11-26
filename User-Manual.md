@@ -18,12 +18,10 @@ GuardianScan is a Python-based vulnerability scanner designed to identify common
 Before using GuardianScan, ensure that you have Python 3.x installed on your system. Additionally, install the required dependencies using the following commands:
 
 ```bash
-git clone https://github.com/your-username/GuardianScan.git
+git clone https://github.com/artemis-solomon/GuardianScan.git
 cd GuardianScan
 pip install -r requirements.txt
 ```
-
-Replace "your-username" with your actual GitHub username.
 
 ## 2. Running GuardianScan <a name="running-guardianscan"></a>
 
